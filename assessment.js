@@ -80,40 +80,91 @@ heroes.push('wonderwoman');
 // remove 'superman' and store him in a variable called firstHero
 var firstHero = heroes.shift();
 // add 'spongebob' to the start of the array
-
+heroes.unshift('spongebob');
 // remove 'flash' from the array and store him in a variable called secondHero
-
+var secondHero = heroes.splice(heroes.indexOf('flash'), 1)
 // leave batman in the array but put a copy of him on a variable called thirdHero
-
+var thirdHero = heroes[heroes.indexOf('batman')];
 
 
 
 // #9 Write a function called addItem that takes in an array and an item, adds the item to
 // the array, and returns the array with the added item.
 
+function addItem(arr, item){
+	arr.push(item);
+	return arr;
+}
 
 // #10 Write a function called removeItem that takes in an array of strings, and a string.
-
 // Removes all instances of that string from the array. And return the modified array.
 // The order of the array should not be changed
+
+function removeItem(arr, str){
+	for (var i = arr.length-1; i >= 0; i --){
+		if (arr[i] === str){
+			arr.splice(i, 1);
+		}
+	}
+	return arr;
+}
+
+
 
 // #11 Write a function  called doubleTheFun that takes 1 parameter. It should double numbers, and
 // repeats strings. example 4->8, 2.5->5, 'Awesome'->'AwesomeAwesome'
 
-
+function doubleTheFun(p){
+	if(!isNaN){
+		return Number(p) + Number(p);
+	}else{
+		return p + p;
+	}
+	
+}
 
 // #12 Write function getValueOfProperty that takes in an object, and the name of a property on the object
 // return the value from the object that corresponds to the property
+
+function getValueOfProperty(obj, name){
+	for (var key in obj){
+		if (key === name){
+			return obj[key];
+		}
+	}
+}
 
 
 // #13 Write a function called makeChatMessage that takes in a message and author as parameters
 // and returns an object with a message, author, and timestamp, that is
 // the current time as a Date object
 
-// #14 Create a function called coderTest that takes in an object that is a person. It looks to see if the person’s name is Jeremy and then changes the person object to have a property called lovesCode with a value of 10.  If their name is Brack set lovesCode to 0.  otherwise set lovesCode to 5.
+function makeChatMessage(m, a){
+	return {
+		message: m,
+		author: a,
+		timestamp: new Date()
+	}
+}
 
+// #14 Create a function called coderTest that takes in an object that is a person. It looks to see if 
+//the person’s name is Jeremy and then changes the person object to have a property called lovesCode 
+//with a value of 10.  If their name is Brack set lovesCode to 0.  otherwise set lovesCode to 5.
 
-// #15 Create a function called outside that takes in a temperature (number), a humidity(number), and a cloudiness(number), in that order. Using the following to return the correct values
+function coderTest(obj){
+
+	if (obj.name === 'Jeremy'){
+		obj.lovesCode = 10;
+	}else if(obj.name === 'Brack'){
+		obj.lovesCode = 0;
+	}else{
+		obj.lovesCode = 5;
+	}
+
+}
+
+// #15 Create a function called outside that takes in a temperature (number), a humidity(number), and a cloudiness(number), 
+//in that order. Using the following to return the correct values
 /*
     temperature over 80 and humidity over 40 - return "I'm all sweat"
     temperature under 40 and cloudiness over 60 - return "I have icecicles"
@@ -122,6 +173,25 @@ var firstHero = heroes.shift();
     Otherwise - return "I love outside"
 */
 
-// #16 Create a function called callerBack that takes in a function (holla) and a string parameter(back) and invokes it(holla) with the argument string(back) + ' back'."
+function outside(temp, humidity, cloud){
+	if (temp > 80 && humidity > 40){
+		return "I'm all sweat";
+	}else if(temp < 40 && cloud > 60){
+		return "I have icecicles";
+	}else if (temp > 80 && humid < 40 && cloud < 20){
+		return "I'm literally in the desert";
+	}else if(temp > 80 || humid > 50 || cloud > 50){
+		return "Hmm, probably not";
+	}else{
+		return "I love outside";
+	}
+}
+
+
+// #16 Create a function called callerBack that takes in a function (holla) and a string parameter(back) and 
+//invokes it(holla) with the argument string(back) + ' back'."
 // example - If I call you with 'Give it' you should invoke holla with 'Give it back'
 
+function callerBack(func, str){
+	return func(str + ' back');
+}
