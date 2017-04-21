@@ -115,7 +115,7 @@ function removeItem(arr, str){
 // repeats strings. example 4->8, 2.5->5, 'Awesome'->'AwesomeAwesome'
 
 function doubleTheFun(p){
-	if(!isNaN){
+	if(!isNaN(p)){
 		return Number(p) + Number(p);
 	}else{
 		return p + p;
@@ -178,9 +178,9 @@ function outside(temp, humidity, cloud){
 		return "I'm all sweat";
 	}else if(temp < 40 && cloud > 60){
 		return "I have icecicles";
-	}else if (temp > 80 && humid < 40 && cloud < 20){
+	}else if (temp > 80 && humidity < 40 && cloud < 20){
 		return "I'm literally in the desert";
-	}else if(temp > 80 || humid > 50 || cloud > 50){
+	}else if(temp > 80 || humidity > 50 || cloud > 50){
 		return "Hmm, probably not";
 	}else{
 		return "I love outside";
